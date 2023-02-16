@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDR GERAL</title>
+    <style>
+        body{
+            background-color: rgb(75, 13, 75);
+            font: normal 21pt Arial;
+            color: rgb(216, 199, 199);
+        }
+        input{
+            font: normal 15pt Arial;
+            width: 65px;
+        }
+        div#res {
+            margin-top: 10px;
+        }
+    </style>
+    
+    
+
+</head>
+<body>
+    <h1>Simulador de Indicadores DDR's</h1>
+    <p1><strong>DDR IP</strong></p1><br>
+    No Prazo:<input type="number" name="txtn1" id="txtn1">
+    Fora:<input type="number" name="txtn2" id="txtn2"><br><br>
+
+    <p2><strong>DDR PE</strong></p2><br>
+    No Prazo:<input type="number" name="txtn3" id="txtn3">
+    Fora:<input type="number" name="txtn4" id="txtn4"><br><br>
+
+    <input type="button" value="clique" onclick="somar()">
+    <div id="res"> Para o Resultado:</div><br>
+
+    <p3>Desenvolvido por Rafael Alencar dos Santos</p3>
+
+    <script>
+         var h1 = window.document.getElementsByTagName(`h1`)[0]
+         h1.style.background = `orange`
+         h1.style.color = `black`
+                  
+                 
+         var p1 = window.document.getElementsByTagName(`p1`)[0]
+         p1.style.color = 'white'
+         p1.style.background = `black`
+                  
+         var p2 = window.document.getElementsByTagName(`p2`)[0]
+         p2.style.color = `white`
+         p2.style.background = `black`
+
+         var p3 = window.document.getElementsByTagName(`p3`)[0]
+         p3.style.color = `gray`
+         p3.style.font = `Normal 12pt Arial`
+
+
+        function somar() {
+            var tn1 = window.document.getElementById(`txtn1`)
+            var tn2 = window.document.getElementById(`txtn2`)
+            var tn3 = window.document.getElementById(`txtn3`)
+            var tn4 = window.document.getElementById(`txtn4`)
+
+
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+            var n3 = Number(tn3.value)
+            var n4 = Number(tn4.value)
+
+            var s1 = n1 + n2 + n3 + n4 //soma que Total
+            var s2 = n2 + n4  // soma do que perdeu
+            var s5 = n1 + n3 // soma do que ganhou
+            var s3 = parseInt((s2*100)/s1) // Porcentagem que Pedeu
+            var s4 = parseInt(100-s3) // Porcentagem que Ganhou
+          
+
+            var s6 = 80>s4?`Fora do Prazo `:`Dentro do Prazo`
+            
+
+            res.innerHTML= `Ganhou ${s4}% Perdeu ${s3}%  <strong>${s6}  `
+
+           
+        }
+
+      </script>
+
+</body>
+</html>
